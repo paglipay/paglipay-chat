@@ -76,6 +76,10 @@ function App(props) {
         alert(error);
       }
     });
+
+    socket.emit('subscribeToEvent', 1000);
+
+
   }, [ENDPOINT]);
 
   const sendMessage = (message) => {
@@ -121,25 +125,31 @@ function App(props) {
               </InputGroup>
             </Col>
             <Col>
-              {
-                message.split("").map((v, i) => {
-                  return (
-                    <InputGroup key={`ig-${i}`} className="mb-3">
-                      <FormControl
-                        ref={(el) => (myRefs.current[i] = el)}
-                        key={i}
-                        id={i}
-                        // onChange={(e) => sendEvent(e.target.value)}
-                        onClick={(e) => console.log('onClick myRefs.current[i]: ', myRefs.current[i])}
-                        onKeyDown={(e) => {
-                          console.log('selectionStart:', myRefs.current[i].selectionStart)
-                          setCurrentSelectionStart(myRefs.current[i].selectionStart)
-                        }}
-                      />
-                    </InputGroup>
-                  )
-                })
-              }
+              <Container>
+                <Row>
+                  {
+                    message.split("").map((v, i) => {
+                      return (
+                        <Col md="3">
+                          <InputGroup key={`ig-${i}`} className="mb-3">
+                            <FormControl
+                              ref={(el) => (myRefs.current[i] = el)}
+                              key={i}
+                              id={i}
+                              // onChange={(e) => sendEvent(e.target.value)}
+                              onClick={(e) => console.log('onClick myRefs.current[i]: ', myRefs.current[i])}
+                              onKeyDown={(e) => {
+                                console.log('selectionStart:', myRefs.current[i].selectionStart)
+                                setCurrentSelectionStart(myRefs.current[i].selectionStart)
+                              }}
+                            />
+                          </InputGroup>
+                        </Col>
+                      )
+                    })
+                  }
+                </Row>
+              </Container>
             </Col>
             {/* <Col>
               {
