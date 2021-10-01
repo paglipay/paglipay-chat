@@ -7,7 +7,10 @@ import { Alert, Toast, ListGroup, Container, Row, Col, Button, InputGroup, FormC
 import { useParams } from 'react-router-dom'
 // import { XCircle, Folder2Open } from 'react-bootstrap-icons';
 import { BsPersonFill } from "react-icons/bs";
-
+import ChartsPage from './components/ChartsPage'
+import RadarChart from './components/RadarChart'
+import BarChart from './components/BarChart';
+// import PoleAreaChart from './components/PoleAreaChart';
 
 let socket;
 
@@ -172,7 +175,7 @@ function App(props) {
                   message.split("").map((v, i) => {
                     return (
                       <Col sm={4} md={3} lg={12}>
-                        <Card>
+                        <Card className="mb-3">
                           <Card.Body>
                             <Card.Title>Card Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -190,7 +193,7 @@ function App(props) {
                 }
               </Row><Row>
                 <Col>
-                  <Card>
+                  <Card className="mb-3">
                     <ListGroup defaultActiveKey="0">
                       {
                         message.split("").map((v, i) => {
@@ -251,7 +254,7 @@ function App(props) {
                         )
                       } else if (v === '2') {
                         return (
-                          <Col  sm={12} md={6} lg={3}>
+                          <Col sm={12} md={6} lg={3} style={{transition: '350ms'}}>
                             <Card style={{ height: '100%' }}>
                               <Card.Header>Featured</Card.Header>
                               <Card.Img variant="top" src="https://source.unsplash.com/1600x900/" />
@@ -263,6 +266,7 @@ function App(props) {
                                 </Card.Text>
                                 <Button variant="primary">Go somewhere</Button>
                               </Card.Body>
+                              <Card.Footer>Featured</Card.Footer>
                             </Card>
                           </Col>
                         )
@@ -285,9 +289,9 @@ function App(props) {
                         )
                       } else if (v === '4') {
                         return (
-                          <Col md="6">
+                          <Col md="6" style={{transition: '350ms'}}>
                             <Card style={{ height: '100%' }}>
-                              <Card.Header>Featured</Card.Header>
+                              {/* <Card.Header>Featured</Card.Header> */}
                               <Card.Img variant="top" src="https://source.unsplash.com/1600x900/" />
                               <Card.Body>
                                 <Card.Title>Card Title</Card.Title>
@@ -307,6 +311,42 @@ function App(props) {
                             <Alert key={i} variant={variant}>
                               This is a {variant} alert—check it out!
                             </Alert>
+                          </Col>
+                        )
+                      } else if (v === '6') {
+                        const variant = "danger"
+                        return (
+                          <Col md="6">
+                            <Card className="mb-3">
+                              <ChartsPage />
+                            </Card>
+                          </Col>
+                        )
+                      }  else if (v === '7') {
+                        const variant = "danger"
+                        return (
+                          <Col md="6">
+                            <Card className="mb-3">
+                              <RadarChart />
+                            </Card>
+                          </Col>
+                        )
+                      }  else if (v === '8') {
+                        const variant = "danger"
+                        return (
+                          <Col md="6">
+                            <Card className="mb-3">
+                              <BarChart />
+                            </Card>
+                          </Col>
+                        )
+                      } else if (v === '9') {
+                        const variant = "danger"
+                        return (
+                          <Col md="6">
+                            <Card className="mb-3">
+                              {/* <PoleAreaChart /> */}
+                            </Card>
                           </Col>
                         )
                       } else {
