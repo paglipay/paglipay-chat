@@ -1,4 +1,5 @@
 const r = require("rethinkdb");
+const RETHINKDB_URL = process.env.RETHINKDB_URL || "192.168.2.81";
 
 const socket_io = (io) => {
     // const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
@@ -7,7 +8,7 @@ const socket_io = (io) => {
     const r = require("rethinkdb");
 
     r.connect({
-        host: "192.168.2.81",
+        host: RETHINKDB_URL,
         port: 28015,
         db: "test",
     }).then((connection) => {

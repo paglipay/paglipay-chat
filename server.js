@@ -3,10 +3,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
+const URL = process.env.URL || "http://192.168.2.201:3000";
+
+
 const server = require('http').Server(app);
 const io = require('socket.io')(server, {
     cors: {
-      origin: "http://192.168.2.201:3000",
+      origin: URL,
       methods: ["GET", "POST"]
     }
   });

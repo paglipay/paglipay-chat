@@ -110,7 +110,7 @@ function App(props) {
           Edit <code>src/App.js</code> and save to reload.
         </p> */}
         {messages.map((e, i) => < div key={i}>{e}</div>)}
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" sticky="top">
           <Container>
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="me-auto">
