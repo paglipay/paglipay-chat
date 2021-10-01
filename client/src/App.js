@@ -2,7 +2,7 @@ import logo from './logo.svg';
 // import './App.css';
 import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
-import { Alert, Toast, ListGroup, Container, Row, Col, Button, InputGroup, FormControl, Card, Carousel } from 'react-bootstrap';
+import { Alert, Navbar, Nav, ListGroup, Container, Row, Col, Button, InputGroup, FormControl, Card, Carousel } from 'react-bootstrap';
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useParams } from 'react-router-dom'
 // import { XCircle, Folder2Open } from 'react-bootstrap-icons';
@@ -110,23 +110,30 @@ function App(props) {
           Edit <code>src/App.js</code> and save to reload.
         </p> */}
         {messages.map((e, i) => < div key={i}>{e}</div>)}
-        <Container style={{ backgroundColor: '#DCDCDC' }} fluid>
-          <Row>
-            <Col lg="12">
-              <Carousel>
-                <Carousel.Item>
-                  <img
-                    height="300"
-                    className="d-block w-100"
-                    src="https://source.unsplash.com/1600x900/"
-                    alt="First slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                {/* <Carousel.Item>
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#pricing">Pricing</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+        <Carousel>
+          <Carousel.Item>
+            <img
+              height="300"
+              className="d-block w-100"
+              src="https://source.unsplash.com/1600x900/"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          {/* <Carousel.Item>
                                 <img
                                   className="d-block w-100"
                                   src="https://source.unsplash.com/1600x400/water"
@@ -150,7 +157,22 @@ function App(props) {
                                   <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                                 </Carousel.Caption>
                               </Carousel.Item> */}
-              </Carousel>
+        </Carousel>
+
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#pricing">Pricing</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+        <Container style={{ backgroundColor: '#DCDCDC' }} fluid>
+          <Row>
+            <Col lg="12">
+
             </Col>
           </Row>
           <Row>
@@ -229,6 +251,7 @@ function App(props) {
                                   setCurrentSelectionStart(myRefs.current[i].selectionStart)
                                 }}
                               />
+                              <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
                             </InputGroup>
                           </Col>
                         )
@@ -254,17 +277,17 @@ function App(props) {
                         )
                       } else if (v === '2') {
                         return (
-                          <Col sm={12} md={6} lg={3} style={{transition: '350ms'}}>
+                          <Col sm={12} md={6} lg={3} style={{ transition: '350ms' }}>
                             <Card style={{ height: '100%' }}>
                               <Card.Header>Featured</Card.Header>
-                              <Card.Img variant="top" src="https://source.unsplash.com/1600x900/" />
+                              <Card.Img variant="top" src="https://source.unsplash.com/1600x900/?electronics" />
                               <Card.Body>
                                 <Card.Title>Card Title</Card.Title>
                                 <Card.Text>
                                   Some quick example text to build on the card title and make up the bulk of
                                   the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Add to Cart</Button>
                               </Card.Body>
                               <Card.Footer>Featured</Card.Footer>
                             </Card>
@@ -273,7 +296,7 @@ function App(props) {
                       } else if (v === '3') {
                         return (
                           <Col md="4">
-                            <Card style={{ height: '100%' }}>
+                            <Card style={{ height: '100%' }} style={{ transition: '350ms' }}>
                               <Card.Header>Featured</Card.Header>
                               <Card.Img variant="top" src="https://source.unsplash.com/1600x900/" />
                               <Card.Body>
@@ -282,14 +305,14 @@ function App(props) {
                                   Some quick example text to build on the card title and make up the bulk of
                                   the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Add to Cart</Button>
                               </Card.Body>
                             </Card>
                           </Col>
                         )
                       } else if (v === '4') {
                         return (
-                          <Col md="6" style={{transition: '350ms'}}>
+                          <Col md="6" style={{ transition: '350ms' }}>
                             <Card style={{ height: '100%' }}>
                               {/* <Card.Header>Featured</Card.Header> */}
                               <Card.Img variant="top" src="https://source.unsplash.com/1600x900/" />
@@ -299,7 +322,7 @@ function App(props) {
                                   Some quick example text to build on the card title and make up the bulk of
                                   the card's content.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Learn More</Button>
                               </Card.Body>
                             </Card>
                           </Col>
@@ -322,7 +345,7 @@ function App(props) {
                             </Card>
                           </Col>
                         )
-                      }  else if (v === '7') {
+                      } else if (v === '7') {
                         const variant = "danger"
                         return (
                           <Col md="6">
@@ -331,7 +354,7 @@ function App(props) {
                             </Card>
                           </Col>
                         )
-                      }  else if (v === '8') {
+                      } else if (v === '8') {
                         const variant = "danger"
                         return (
                           <Col md="6">
@@ -414,6 +437,16 @@ function App(props) {
             </Col> */}
           </Row>
         </Container>
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="#pricing">Pricing</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
         <a
           className="App-link"
           href="https://reactjs.org"
