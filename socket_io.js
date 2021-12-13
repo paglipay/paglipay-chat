@@ -107,7 +107,7 @@ const socket_io = (io) => {
                     .update(Object.assign({ data: data.data }))
                     .run(connection)
 
-                // io.to('1').emit('event', data);
+                io.to('1').emit('event', data);
             })
 
             socket.on('disconnect', () => {
